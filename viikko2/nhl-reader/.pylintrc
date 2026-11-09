@@ -1,0 +1,16 @@
+[MAIN]
+ignore=CVS,.venv
+
+[MESSAGES CONTROL]
+disable=C0114,C0115,C0116,R0903
+
+[FORMAT]
+max-line-length=100
+indent-string='    '
+
+[REFACTORING]
+max-nested-blocks=2
+
+[DESIGN]
+max-statements=10
+max-args=4
