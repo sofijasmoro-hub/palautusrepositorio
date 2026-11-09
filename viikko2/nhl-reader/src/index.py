@@ -6,14 +6,14 @@ def main():
     url = "https://studies.cs.helsinki.fi/nhlstats/2024-25/players"
     response = requests.get(url).json()
 
-    players = []
-    for player_dict in response:
-        players.append(Player(player_dict))
+    players = [Player(player_dict) for player_dict in response]
 
-    print("Players from FIN:")
-    for player in players:
-        if player.nationality == "FIN":
-            print(player)
+    finns = filter(lambda player: player.nationality == "FIN", players)
+    sorted_finns = sorted(finns, key=lambda player: player.points, reverse=True)
+
+    print("Players from FIN")
+    for player in sorted_finns:
+        print(player)
 
 
 if __name__ == "__main__":
